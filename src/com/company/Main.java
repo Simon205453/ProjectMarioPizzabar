@@ -1,6 +1,8 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,9 +20,27 @@ public class Main {
         Pizza bertil = new Pizza("Betil",59,true,true,"Bacon","","",true,"","","");
         Pizza victoria = new Pizza("Victoria",75,true,true,"Skinke","","",true,"Champignon","Løg","Ananas");
 
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> orderFromCostumers = new ArrayList<Integer>();
+
+        System.out.println("Hello and welcome to Marios pizzaria, how can i help you?");
+        System.out.println("Enter 0 to finish this order.");
+        // en kunde siger hvilke pizzaer de vil have f.eks. en nummer 2 og nummer 3.
+        int costumerPizza = scanner.nextInt();
+
+        while (costumerPizza != 0){
+
+            orderFromCostumers.add(costumerPizza);
+            costumerPizza = scanner.nextInt();
+        }
+        for (int e  : orderFromCostumers) {
+            System.out.println("Number "+ e);
 
  */
 
+        }
+
+        /*
 
         /*
 
@@ -42,6 +62,9 @@ public class Main {
 
 
         }
+        /*
+         */
+
 
     }
 

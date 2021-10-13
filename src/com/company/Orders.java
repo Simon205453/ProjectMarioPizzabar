@@ -1,7 +1,9 @@
 package com.company;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Orders {
 
@@ -12,6 +14,11 @@ public class Orders {
     private String customerName;
     private Pizza[] chosenPizzas;
     private String orderId;
+
+    public Orders() {
+
+    }
+
 
     public static String timeStamp(){
         return "Timestamp: " + new Timestamp(new java.util.Date().getTime());
@@ -41,7 +48,7 @@ public class Orders {
 
 
     }
-    public void showActiveOrders(){
+    public void orderSystem(){
 
 
     }
