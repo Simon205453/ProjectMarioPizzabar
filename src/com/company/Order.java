@@ -15,9 +15,6 @@ public class Order {
     private Pizza[] chosenPizzas;
     private int orderId;
 
-    public Orders() {
-
-    }
 
 
     public static String timeStamp(){

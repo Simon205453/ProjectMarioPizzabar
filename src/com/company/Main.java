@@ -22,13 +22,18 @@ public class Main {
         String[] victoriaToppings = {pizzatopping.getTomatsauce(), pizzatopping.getOst(), pizzatopping.getSkinke(), pizzatopping.getAnanas(), pizzatopping.getChampingnon(), pizzatopping.getLøg()};
         Pizza Victoria = new Pizza(4, "Victoria", 75, victoriaToppings);
 
+
+        /*
         System.out.println(Vesuvio.getPizzaNum());
         System.out.println(Vesuvio.getName());
         System.out.println(Vesuvio.getPrice());
         System.out.println(Vesuvio.getPizzaTopping());
-
+*/
         Pizza[] Menukort = {Vesuvio, Margherita, Bertil, Victoria};
-        System.out.println(Menukort);
+
+        for (int i = 0; i < Menukort.length; i++) {
+            System.out.println(Menukort[i]);
+        }
 
 
 /*
@@ -83,5 +88,5 @@ public class Main {
          */
 
 
-    }
+
 
