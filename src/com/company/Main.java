@@ -5,11 +5,28 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
+
+        //creates a new instance of pizzatoppings
+        Pizzatopping pizzatopping = new Pizzatopping("Tomatsauce", "Ost", "Oregano", "Skinke", "Bacon", "Løg", "Champingnon", "Chili", "Ananas", "Kebab");
         //Pizzas
+        //Vi laver en pizza, ved først at bestemme toppingen tilhørende. Laver et dedikeret array til hver enkelt pizzas toppings
+        String[] vesuvioToppings = {pizzatopping.getTomatsauce(), pizzatopping.getOst(), pizzatopping.getSkinke(), pizzatopping.getOregano()};
+        //Vi laver pizzaen med toppingen fra tidl. krearede array.
+        Pizza Vesuvio = new Pizza(1, "Vesuvio", 59, vesuvioToppings);
+        String[] margheritaToppings = {pizzatopping.getTomatsauce(), pizzatopping.getOst()};
+        Pizza Margherita = new Pizza(2, "Margherita", 59, margheritaToppings);
+        String[] bertilToppings = {pizzatopping.getTomatsauce(), pizzatopping.getOst(), pizzatopping.getBacon(), pizzatopping.getOregano()};
+        Pizza Bertil = new Pizza(3, "Bertil", 59, bertilToppings);
+        String[] victoriaToppings = {pizzatopping.getTomatsauce(), pizzatopping.getOst(), pizzatopping.getSkinke(), pizzatopping.getAnanas(), pizzatopping.getChampingnon(), pizzatopping.getLøg()};
+        Pizza Victoria = new Pizza(4, "Victoria", 75, victoriaToppings);
 
-        Pizza test = new Pizza(get)
-        System.out.println(test);
+        System.out.println(Vesuvio.getPizzaNum());
+        System.out.println(Vesuvio.getName());
+        System.out.println(Vesuvio.getPrice());
+        System.out.println(Vesuvio.getPizzaTopping());
 
+        Pizza[] Menukort = {Vesuvio, Margherita, Bertil, Victoria};
+        System.out.println(Menukort);
 
 
 /*
