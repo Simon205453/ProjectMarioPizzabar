@@ -7,18 +7,28 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+
+        //creates a new instance of pizzatoppings
+        Pizzatopping pizzatopping = new Pizzatopping("Tomatsauce", "Ost", "Oregano", "Skinke", "Bacon", "Løg", "Champingnon", "Chili", "Ananas", "Kebab");
         //Pizzas
+        //Vi laver en pizza, ved først at bestemme toppingen tilhørende. Laver et dedikeret array til hver enkelt pizzas toppings
+        String[] vesuvioToppings = {pizzatopping.getTomatsauce(), pizzatopping.getOst(), pizzatopping.getSkinke(), pizzatopping.getOregano()};
+        //Vi laver pizzaen med toppingen fra tidl. krearede array.
+        Pizza Vesuvio = new Pizza(1, "Vesuvio", 59, vesuvioToppings);
+        String[] margheritaToppings = {pizzatopping.getTomatsauce(), pizzatopping.getOst()};
+        Pizza Margherita = new Pizza(2, "Margherita", 59, margheritaToppings);
+        String[] bertilToppings = {pizzatopping.getTomatsauce(), pizzatopping.getOst(), pizzatopping.getBacon(), pizzatopping.getOregano()};
+        Pizza Bertil = new Pizza(3, "Bertil", 59, bertilToppings);
+        String[] victoriaToppings = {pizzatopping.getTomatsauce(), pizzatopping.getOst(), pizzatopping.getSkinke(), pizzatopping.getAnanas(), pizzatopping.getChampingnon(), pizzatopping.getLøg()};
+        Pizza Victoria = new Pizza(4, "Victoria", 75, victoriaToppings);
 
-        Pizza test = new Pizza(get)
-        System.out.println(test);
+        Pizza[] Menukort = {Vesuvio, Margherita, Bertil, Victoria};
+
+        for (int i = 0; i < Menukort.length; i++) {
+            System.out.println(Menukort[i]);
+        }
 
 
-
-/*
-        Pizza vesuvio = new Pizza("Vesuvio", 59, true, true, "Skinke", "", "", true, "", "", "");
-        Pizza magarita = new Pizza("Magarita",59,true,true,"","","",true,"","","");
-        Pizza bertil = new Pizza("Betil",59,true,true,"Bacon","","",true,"","","");
-        Pizza victoria = new Pizza("Victoria",75,true,true,"Skinke","","",true,"Champignon","Løg","Ananas");
 
         Scanner scanner = new Scanner(System.in);
         ArrayList<Integer> orderFromCostumers = new ArrayList<Integer>();
@@ -27,44 +37,45 @@ public class Main {
         System.out.println("Enter 0 to finish this order.");
         // en kunde siger hvilke pizzaer de vil have f.eks. en nummer 2 og nummer 3.
         int costumerPizza = scanner.nextInt();
-
-        while (costumerPizza != 0){
-
+        int countPizza = 0;
+        while (costumerPizza != 0) {
             orderFromCostumers.add(costumerPizza);
             costumerPizza = scanner.nextInt();
+            countPizza++;
+            if (costumerPizza == 1){
+                Vesuvio.getName();
+                continue;
+            }else if(costumerPizza == 2){
+    Margherita.getName();
+    continue;
+            }else if (costumerPizza == 3){
+                Bertil.getName();
+                continue;
+            }else if (costumerPizza == 4){
+                Victoria.getName();
+
+                continue;
+            }else {
+
+                continue;
+            }
         }
-        for (int e  : orderFromCostumers) {
-            System.out.println("Number "+ e);
 
- */
 
+        System.out.println("So in total you have " + countPizza + " pizzas and the numbers are: ");
+
+        for (int e : orderFromCostumers) {
+            System.out.println("Number " + e);
         }
 
-        /*
-
-        /*
-
-        ArrayList<Pizza>pizzaOrders = new ArrayList<>();
-
-        pizzaOrders.add(vesuvio);
-        pizzaOrders.add(magarita);
-        pizzaOrders.add(bertil);
-        pizzaOrders.add(victoria);
-        pizzaOrders.add(bertil);
-        pizzaOrders.add(victoria);
-        System.out.println("s");
-        System.out.println("Here is your list with your orders:");
-
-        for (Pizza e: pizzaOrders ) {
-            System.out.println(e);
-
-         */
-
-
+        if (countPizza < 10){
+            System.out.println("They are ready in 10 minuts🍕");
+       }else {
+               System.out.println("They are ready in 20 minuts🍕");
         }
-        /*
-         */
-
-
     }
+}
+
+
+
 
