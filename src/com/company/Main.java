@@ -1,12 +1,17 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
-    public static void main(String[] args) {
+    static ArrayList<Pizza> placeOrder = new ArrayList<Pizza>();
+    static ArrayList<Integer> orderFromCostumers = new ArrayList<Integer>();
+    static int orderNum;
+    static ArrayList<String> orders = new ArrayList<String>();
 
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
         //creates a new instance of pizzatoppings
         Pizzatopping pizzatopping = new Pizzatopping("Tomatsauce", "Ost", "Oregano", "Skinke", "Bacon", "Løg", "Champingnon", "Chili", "Ananas", "Kebab");
@@ -23,17 +28,12 @@ public class Main {
         Pizza Victoria = new Pizza(4, "Victoria", 75, victoriaToppings);
 
         Pizza[] Menukort = {Vesuvio, Margherita, Bertil, Victoria};
-
-        for (int i = 0; i < Menukort.length; i++) {
-            System.out.println(Menukort[i]);
-        }
+/*
 
 
 
-        Scanner scanner = new Scanner(System.in);
-        ArrayList<Integer> orderFromCostumers = new ArrayList<Integer>();
 
-        System.out.println("Hello and welcome to Marios pizzaria, how can i help you?");
+
         System.out.println("Enter 0 to finish this order.");
         // en kunde siger hvilke pizzaer de vil have f.eks. en nummer 2 og nummer 3.
         int costumerPizza = scanner.nextInt();
@@ -42,25 +42,98 @@ public class Main {
             orderFromCostumers.add(costumerPizza);
             costumerPizza = scanner.nextInt();
             countPizza++;
-            if (costumerPizza == 1){
-                Vesuvio.getName();
-                continue;
-            }else if(costumerPizza == 2){
-    Margherita.getName();
-    continue;
-            }else if (costumerPizza == 3){
-                Bertil.getName();
-                continue;
-            }else if (costumerPizza == 4){
-                Victoria.getName();
 
-                continue;
-            }else {
+            Costumer random = new Costumer("name", "24");
+*/
+        int chosenPizza;
+        int chosenAction;
+        boolean pizzabarOpen = true;
+        System.out.println("Hello and welcome to Marios pizzaria, how can i help you?");
+        while (pizzabarOpen) {
 
-                continue;
+            System.out.println("press 1 to place order \n press 2 to show menu \n press 3 to show orders");
+            chosenAction = scanner.nextInt();
+
+            String pizzaorder = "Order";
+            int pizzaOrderCount = 0;
+            int currentOrderNum = 0;
+            while (currentOrderNum != pizzaOrderCount) {
+                String newestOrder = pizzaorder + pizzaOrderCount;
+                orders.add(newestOrder);
+            }
+
+            switch (chosenAction) {
+                case 1:
+                    System.out.println("Place order");
+                    chosenPizza = scanner.nextInt();
+                    double totalPriceSum = 0;
+                    System.out.println("");
+
+
+
+                    while (chosenPizza != 0) {
+
+
+                        switch (chosenPizza) {
+                            case 1:
+                                System.out.println(Vesuvio.getName());
+                                totalPriceSum = totalPriceSum + Vesuvio.getPrice();
+                                placeOrder.add(Vesuvio);
+                                break;
+                            case 2:
+                                System.out.println(Bertil.getName());
+                                totalPriceSum = totalPriceSum + Bertil.getPrice();
+                                placeOrder.add(Bertil);
+                                break;
+                            case 3:
+                                System.out.println(Margherita.getName());
+                                totalPriceSum = totalPriceSum + Margherita.getPrice();
+                                placeOrder.add(Margherita);
+                                break;
+                            case 4:
+                                System.out.println(Victoria.getName());
+                                totalPriceSum = totalPriceSum + Victoria.getPrice();
+                                placeOrder.add(Victoria);
+                                break;
+                            default:
+                                System.out.println("Unavailable Pizza");
+                                break;
+                        }
+
+                        System.out.println(placeOrder.stream().map(Object::toString)
+                                .collect(Collectors.joining("\n")));
+
+                        System.out.println("Do you to finish your order? \n type:\n 0 - YES ");
+                        //System.out.println("total price: " + totalPriceSum);
+                        chosenPizza = scanner.nextInt();
+                        if (chosenPizza == 0) {
+                            System.out.println("total price: " + totalPriceSum);
+                        }
+                        String placeOrderString = placeOrder.toString();
+                        orders.set(pizzaOrderCount, placeOrderString);
+                        System.out.println(orders);
+                    }
+                    pizzaOrderCount++;
+                    break;
+
+                case 2:
+                    System.out.println("Menukort \n-----------");
+                    for (int i = 0; i < Menukort.length; i++) {
+                        System.out.println(Menukort[i]);
+                    }
+                    break;
+
+                case 3:
+                    break;
+
+                default:
+                    System.out.println("Invalid action");
+                    break;
             }
         }
-
+        //  System.out.println("total price: " + totalPriceSum);
+    }
+      /*
 
         System.out.println("So in total you have " + countPizza + " pizzas and the numbers are: ");
 
@@ -68,14 +141,15 @@ public class Main {
             System.out.println("Number " + e);
         }
 
-        if (countPizza < 10){
+        if (countPizza < 10) {
             System.out.println("They are ready in 10 minuts🍕");
-       }else {
-               System.out.println("They are ready in 20 minuts🍕");
+        } else {
+            System.out.println("They are ready in 20 minuts🍕");
         }
-    }
+
+       */
+
 }
 
 
-
-
+//make txt with saved orders

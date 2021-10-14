@@ -9,4 +9,12 @@ public class Costumer {
         this.name = name;
         this.orderId = orderId;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
 }
