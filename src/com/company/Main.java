@@ -5,10 +5,11 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Main {
-    static ArrayList<Pizza> placeOrder = new ArrayList<Pizza>();
+
     static ArrayList<Integer> orderFromCostumers = new ArrayList<Integer>();
     static int orderNum;
     static ArrayList<String> orders = new ArrayList<String>();
+    static ArrayList<String> allOrders = new ArrayList<String>();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -51,7 +52,7 @@ public class Main {
         System.out.println("Hello and welcome to Marios pizzaria, how can i help you?");
         while (pizzabarOpen) {
 
-            System.out.println("press 1 to place order \n press 2 to show menu \n press 3 to show orders");
+            System.out.println("press 1 to place order \n press 2 to show menu \n press 3 to show all orders \n press 4 to show current orders \n press 5 to remove order");
             chosenAction = scanner.nextInt();
 
             String pizzaorder = "Order";
@@ -61,7 +62,7 @@ public class Main {
                 String newestOrder = pizzaorder + pizzaOrderCount;
                 orders.add(newestOrder);
             }
-
+            ArrayList<Pizza> placeOrder = new ArrayList<Pizza>();
             switch (chosenAction) {
                 case 1:
                     System.out.println("Place order");
@@ -98,6 +99,7 @@ public class Main {
                             default:
                                 System.out.println("Unavailable Pizza");
                                 break;
+
                         }
 
                         System.out.println(placeOrder.stream().map(Object::toString)
@@ -109,10 +111,12 @@ public class Main {
                         if (chosenPizza == 0) {
                             System.out.println("total price: " + totalPriceSum);
                         }
-                        String placeOrderString = placeOrder.toString();
-                        orders.set(pizzaOrderCount, placeOrderString);
-                        System.out.println(orders);
                     }
+                    String placeOrderString = "";
+                    placeOrderString = placeOrder.toString();
+                        orders.add(placeOrderString);
+                        allOrders.add(placeOrderString);
+
                     pizzaOrderCount++;
                     break;
 
@@ -124,8 +128,23 @@ public class Main {
                     break;
 
                 case 3:
+                    System.out.println(allOrders.stream().map(Object::toString)
+                            .collect(Collectors.joining("\n")));
                     break;
-
+                case 4:
+                    System.out.println(orders.stream().map(Object::toString)
+                            .collect(Collectors.joining("\n")));
+                    break;
+                case 5:
+                    System.out.println("Chose order to remove/mark as done");
+                    System.out.println(orders.stream().map(Object::toString)
+                            .collect(Collectors.joining("\n")));
+                    int removeOrder = scanner.nextInt();
+                    orders.remove(removeOrder-1);
+                    System.out.println("Current orders");
+                    System.out.println(orders.stream().map(Object::toString)
+                            .collect(Collectors.joining("\n")));
+                    break;
                 default:
                     System.out.println("Invalid action");
                     break;
