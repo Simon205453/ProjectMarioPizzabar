@@ -1,11 +1,10 @@
 package com.company;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Orders {
+public class Order {
 
 
 
@@ -13,11 +12,8 @@ public class Orders {
     private double totalPrice;
     private String customerName;
     private Pizza[] chosenPizzas;
-    private String orderId;
+    private int orderId;
 
-    public Orders() {
-
-    }
 
 
     public static String timeStamp(){
@@ -34,7 +30,7 @@ public class Orders {
                 '}';
     }
 
-    public Orders(String timestamp, double totalPrice, String customerName, Pizza[] chosenPizzas, String orderId) {
+    public Order(String timestamp, double totalPrice, String customerName, Pizza[] chosenPizzas, int orderId) {
         this.timestamp = timestamp;
         this.totalPrice = totalPrice;
         this.customerName = customerName;
@@ -57,5 +53,21 @@ public class Orders {
     }
     public void placeOrder(){
 
+    }
+    public int getOrderId(){
+
+        return orderId;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public Pizza[] getChosenPizzas() {
+        return chosenPizzas;
     }
 }
