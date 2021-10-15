@@ -12,30 +12,6 @@ public class Order {
     static ArrayList<String> allOrders = new ArrayList<String>();
     static ArrayList<String> totalpriceOfOrder = new ArrayList<String>();
 
-    private String timestamp;
-    private double totalPrice;
-    private String customerName;
-    private Pizza[] chosenPizzas;
-    private int orderId;
-
-
-
-
-    public static String timeStamp(){
-        return "Timestamp: " + new Timestamp(new java.util.Date().getTime());
-    }
-
-    @Override
-    public String toString() {
-        return "Orders{ timeOfOrder: " + timeStamp() +
-                " totalPrice=" + totalPrice +
-                ", customerName='" + customerName + '\'' +
-                ", chosenPizzas=" + Arrays.toString(chosenPizzas) +
-                ", orderId='" + orderId + '\'' +
-                '}';
-    }
-
-
         public int countingPizza(){
             int countPizza = 0;
 
