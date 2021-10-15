@@ -8,7 +8,9 @@ import java.util.Scanner;
 
 public class Order {
 
-
+    static ArrayList<String> currentOrders = new ArrayList<String>();
+    static ArrayList<String> allOrders = new ArrayList<String>();
+    static ArrayList<String> totalpriceOfOrder = new ArrayList<String>();
 
     private String timestamp;
     private double totalPrice;

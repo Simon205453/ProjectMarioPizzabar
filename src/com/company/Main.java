@@ -7,9 +7,7 @@ import java.util.stream.Collectors;
 public class Main {
 
 
-    static ArrayList<String> currentOrders = new ArrayList<String>();
-    static ArrayList<String> allOrders = new ArrayList<String>();
-    static ArrayList<String> totalpriceOfOrder = new ArrayList<String>();
+
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -45,7 +43,7 @@ public class Main {
             int currentOrderNum = 0;
             while (currentOrderNum != pizzaOrderCount) {
                 String newestOrder = pizzaorder + pizzaOrderCount;
-                currentOrders.add(newestOrder);
+                Order.currentOrders.add(newestOrder);
             }
             ArrayList<Pizza> placeOrder = new ArrayList<Pizza>();
             switch (chosenAction) {
@@ -91,14 +89,14 @@ public class Main {
                         if (chosenPizza == 0) {
                             System.out.println("total price: " + totalPriceSum);
                             String totalpriceOfOrdertoString = Integer.toString(totalPriceSum);
-                            totalpriceOfOrder.add(totalpriceOfOrdertoString);
+                            Order.totalpriceOfOrder.add(totalpriceOfOrdertoString);
                         }
                     }
                     //Vi laver en placeOrderString for at kunne tilføje ordren til vores orders arraylist som en string
                     String placeOrderString = "";
                     placeOrderString = placeOrder.toString();
-                    currentOrders.add(placeOrderString);
-                    allOrders.add(placeOrderString);
+                    Order.currentOrders.add(placeOrderString);
+                    Order.allOrders.add(placeOrderString);
 
                     Order ordersFromCostumer = new Order();
                     ordersFromCostumer.countingPizza();
@@ -113,24 +111,24 @@ public class Main {
                     break;
 
                 case 3:
-                    System.out.println(allOrders.stream().map(Object::toString)
+                    System.out.println(Order.allOrders.stream().map(Object::toString)
                             .collect(Collectors.joining("\n")));
                     break;
                 case 4:
-                    for (int i = 0; i < currentOrders.size(); i++) {
-                        System.out.println(currentOrders.get(i));
-                        System.out.println("Total price of order: " + totalpriceOfOrder.get(i));
+                    for (int i = 0; i < Order.currentOrders.size(); i++) {
+                        System.out.println(Order.currentOrders.get(i));
+                        System.out.println("Total price of order: " + Order.totalpriceOfOrder.get(i));
                     }
 
                     break;
                 case 5:
                     System.out.println("Chose order to remove/mark as done");
-                    System.out.println(currentOrders.stream().map(Object::toString)
+                    System.out.println(Order.currentOrders.stream().map(Object::toString)
                             .collect(Collectors.joining("\n")));
                     int removeOrder = scanner.nextInt();
-                    currentOrders.remove(removeOrder - 1);
+                    Order.currentOrders.remove(removeOrder - 1);
                     System.out.println("Current orders");
-                    System.out.println(currentOrders.stream().map(Object::toString)
+                    System.out.println(Order.currentOrders.stream().map(Object::toString)
                             .collect(Collectors.joining("\n")));
                     break;
                 default:
