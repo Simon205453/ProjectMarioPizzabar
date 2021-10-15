@@ -9,7 +9,7 @@ public class Main {
 
     static ArrayList<String> currentOrders = new ArrayList<String>();
     static ArrayList<String> allOrders = new ArrayList<String>();
-
+    static ArrayList<String> totalpriceOfOrder = new ArrayList<String>();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -90,6 +90,8 @@ public class Main {
                         chosenPizza = scanner.nextInt();
                         if (chosenPizza == 0) {
                             System.out.println("total price: " + totalPriceSum);
+                            String totalpriceOfOrdertoString = Integer.toString(totalPriceSum);
+                            totalpriceOfOrder.add(totalpriceOfOrdertoString);
                         }
                     }
                     //Vi laver en placeOrderString for at kunne tilføje ordren til vores orders arraylist som en string
@@ -115,8 +117,11 @@ public class Main {
                             .collect(Collectors.joining("\n")));
                     break;
                 case 4:
-                    System.out.println(currentOrders.stream().map(Object::toString)
-                            .collect(Collectors.joining("\n")));
+                    for (int i = 0; i < currentOrders.size(); i++) {
+                        System.out.println(currentOrders.get(i));
+                        System.out.println("Total price of order: " + totalpriceOfOrder.get(i));
+                    }
+
                     break;
                 case 5:
                     System.out.println("Chose order to remove/mark as done");
