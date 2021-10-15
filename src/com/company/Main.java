@@ -9,13 +9,9 @@ public class Main {
     static ArrayList<Integer> orderFromCostumers = new ArrayList<Integer>();
     static int orderNum;
     static double totalPriceSum;
-    static ArrayList<String> currentOrders = new ArrayList<String>();
-    static ArrayList<String> allOrders = new ArrayList<String>();
+    public static ArrayList<String> currentOrders = new ArrayList<String>();
+    public static ArrayList<String> allOrders = new ArrayList<String>();
 
-    public static double getTotalPriceSum() {
-        //if (currentOrders.contains(Pizza Ves))
-        return totalPriceSum;
-    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -36,6 +32,7 @@ public class Main {
 
         Pizza[] Menukort = {Vesuvio, Margherita, Bertil, Victoria};
 
+
         int chosenPizza;
         int chosenAction;
         boolean pizzabarOpen = true;
@@ -45,10 +42,10 @@ public class Main {
             System.out.println(" 1 - place order \n 2 - show menu \n 3 - show all orders \n 4 - show current orders \n 5 - remove order");
             chosenAction = scanner.nextInt();
 
+
             String pizzaorder = "Order";
             int pizzaOrderCount = 0;
             int currentOrderNum = 0;
-            String customerName = "";
             while (currentOrderNum != pizzaOrderCount) {
                 String newestOrder = pizzaorder + pizzaOrderCount;
                 currentOrders.add(newestOrder);
@@ -58,7 +55,7 @@ public class Main {
                 case 1:
                     System.out.println("Place order\n 1 - Vesuvio\n 2 - Bertil\n 3 - Margherita\n 4 - Victoria");
                     chosenPizza = scanner.nextInt();
-            //Vi sætter totalpricesum til 0, for ikke at lægge den forrige pizzas pris oven i den nye pizzas pris
+                    //Vi sætter totalpricesum til 0, for ikke at lægge den forrige pizzas pris oven i den nye pizzas pris
                     totalPriceSum = 0;
 
                     while (chosenPizza != 0) {
@@ -87,7 +84,6 @@ public class Main {
                             default:
                                 System.out.println("Unavailable Pizza");
                                 break;
-
                         }
 
                         System.out.println(placeOrder.stream().map(Object::toString)
@@ -105,7 +101,8 @@ public class Main {
                     currentOrders.add(placeOrderString);
                     allOrders.add(placeOrderString);
 
-                    pizzaOrderCount++;
+                    Order ordersFromCostumer = new Order();
+                    ordersFromCostumer.countingPizza();
                     break;
 
                 case 2:
@@ -113,6 +110,7 @@ public class Main {
                     for (int i = 0; i < Menukort.length; i++) {
                         System.out.println(Menukort[i]);
                     }
+
                     break;
 
                 case 3:

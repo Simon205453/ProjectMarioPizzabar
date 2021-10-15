@@ -19,12 +19,9 @@ public class Pizza {
 
     }
 
-    public int getPizzaNum() {
-        return pizzaNum;
-    }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getPrice() {
@@ -33,6 +30,9 @@ public class Pizza {
 
     public String[] getPizzaTopping() {
         return pizzaTopping;
+    }
+    public void menuKort(){
+
     }
 
     @Override
