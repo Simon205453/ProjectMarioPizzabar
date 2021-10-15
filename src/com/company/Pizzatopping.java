@@ -12,9 +12,7 @@ public class Pizzatopping {
                 ", bacon='" + bacon + '\'' +
                 ", løg='" + løg + '\'' +
                 ", champingnon='" + champingnon + '\'' +
-                ", chili='" + chili + '\'' +
                 ", ananas='" + ananas + '\'' +
-                ", kebab='" + kebab + '\'' +
                 '}' + "\n";
     }
 
@@ -25,11 +23,10 @@ public class Pizzatopping {
     private String bacon;
     private String løg;
     private String champingnon;
-    private String chili;
     private String ananas;
-    private String kebab;
 
-    public Pizzatopping(String tomatsauce, String ost, String oregano, String skinke, String bacon, String løg, String champingnon, String chili, String ananas, String kebab) {
+
+    public Pizzatopping(String tomatsauce, String ost, String oregano, String skinke, String bacon, String løg, String champingnon, String ananas) {
         this.tomatsauce = tomatsauce;
         this.ost = ost;
         this.oregano = oregano;
@@ -37,9 +34,8 @@ public class Pizzatopping {
         this.bacon = bacon;
         this.løg = løg;
         this.champingnon = champingnon;
-        this.chili = chili;
         this.ananas = ananas;
-        this.kebab = kebab;
+
     }
 
     public String getTomatsauce() {
@@ -70,15 +66,8 @@ public class Pizzatopping {
         return champingnon;
     }
 
-    public String getChili() {
-        return chili;
-    }
-
     public String getAnanas() {
         return ananas;
     }
 
-    public String getKebab() {
-        return kebab;
-    }
 }

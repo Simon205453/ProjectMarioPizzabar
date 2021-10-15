@@ -12,12 +12,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        //creates a new instance of pizzatoppings
-        Pizzatopping pizzatopping = new Pizzatopping("Tomatsauce", "Ost", "Oregano", "Skinke", "Bacon", "Løg", "Champingnon", "Chili", "Ananas", "Kebab");
-        //Pizzas
-        //Vi laver en pizza, ved først at bestemme toppingen tilhørende. Laver et dedikeret array til hver enkelt pizzas toppings
+        //Creates a new instance of pizzatoppings
+        Pizzatopping pizzatopping = new Pizzatopping("Tomatsauce", "Ost", "Oregano", "Skinke", "Bacon", "Løg", "Champingnon", "Ananas");
+
+        //Vi laver en pizza, ved at bestemme ingredienser og kryderier - Det gør vi ved at lave et dedikeret array til hver enkelt pizzas toppings
         String[] vesuvioToppings = {pizzatopping.getTomatsauce(), pizzatopping.getOst(), pizzatopping.getSkinke(), pizzatopping.getOregano()};
-        //Vi laver pizzaen med toppingen fra tidl. krearede array.
+
+        //Her gør vi brug af det array vi lavede til pizza topping,, og benytter det nu til at lave de forskellige pizza menuer.
         Pizza Vesuvio = new Pizza(1, "Vesuvio", 59, vesuvioToppings);
         String[] margheritaToppings = {pizzatopping.getTomatsauce(), pizzatopping.getOst()};
         Pizza Margherita = new Pizza(2, "Margherita", 59, margheritaToppings);
