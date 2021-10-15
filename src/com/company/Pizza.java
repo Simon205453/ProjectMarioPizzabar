@@ -28,12 +28,7 @@ public class Pizza {
         return price;
     }
 
-    public String[] getPizzaTopping() {
-        return pizzaTopping;
-    }
-    public void menuKort(){
 
-    }
 
     @Override
     public String toString() {
@@ -43,6 +38,7 @@ public class Pizza {
                 ", pizzaTopping= " + Arrays.toString(pizzaTopping) +
                 '}';
     }
+
 }
 
 

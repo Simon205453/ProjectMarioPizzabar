@@ -13,6 +13,7 @@ public class Main {
     public static ArrayList<String> allOrders = new ArrayList<String>();
 
 
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -32,8 +33,7 @@ public class Main {
 
         Pizza[] Menukort = {Vesuvio, Margherita, Bertil, Victoria};
 
-
-        int chosenPizza;
+        int chosenPizza;                                                                                                              
         int chosenAction;
         boolean pizzabarOpen = true;
         System.out.println("Welcome to the Pizzabar system");
@@ -50,6 +50,7 @@ public class Main {
                 String newestOrder = pizzaorder + pizzaOrderCount;
                 currentOrders.add(newestOrder);
             }
+
             ArrayList<Pizza> placeOrder = new ArrayList<Pizza>();
             switch (chosenAction) {
                 case 1:
@@ -89,7 +90,7 @@ public class Main {
                         System.out.println(placeOrder.stream().map(Object::toString)
                                 .collect(Collectors.joining("\n")));
 
-                        System.out.println("Do you to finish your order? \n type:\n 0 - YES ");
+                        System.out.println("Do you want to finish your order? \n type:\n 0 - YES ");
                         chosenPizza = scanner.nextInt();
                         if (chosenPizza == 0) {
                             System.out.println("total price: " + totalPriceSum);
@@ -137,6 +138,7 @@ public class Main {
             }
         }
     }
+
 }
 
 //make txt with saved orders
