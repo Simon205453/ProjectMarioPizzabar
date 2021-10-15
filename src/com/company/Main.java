@@ -6,11 +6,9 @@ import java.util.stream.Collectors;
 
 public class Main {
 
-    static ArrayList<Integer> orderFromCostumers = new ArrayList<Integer>();
-    static int orderNum;
-    static double totalPriceSum;
-    public static ArrayList<String> currentOrders = new ArrayList<String>();
-    public static ArrayList<String> allOrders = new ArrayList<String>();
+
+    static ArrayList<String> currentOrders = new ArrayList<String>();
+    static ArrayList<String> allOrders = new ArrayList<String>();
 
 
     public static void main(String[] args) {
@@ -31,7 +29,6 @@ public class Main {
         Pizza Victoria = new Pizza(4, "Victoria", 75, victoriaToppings);
 
         Pizza[] Menukort = {Vesuvio, Margherita, Bertil, Victoria};
-
 
         int chosenPizza;
         int chosenAction;
@@ -56,7 +53,7 @@ public class Main {
                     System.out.println("Place order\n 1 - Vesuvio\n 2 - Bertil\n 3 - Margherita\n 4 - Victoria");
                     chosenPizza = scanner.nextInt();
                     //Vi sætter totalpricesum til 0, for ikke at lægge den forrige pizzas pris oven i den nye pizzas pris
-                    totalPriceSum = 0;
+                    int totalPriceSum = 0;
 
                     while (chosenPizza != 0) {
 
@@ -138,5 +135,3 @@ public class Main {
         }
     }
 }
-
-//make txt with saved orders
