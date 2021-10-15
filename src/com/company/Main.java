@@ -6,13 +6,10 @@ import java.util.stream.Collectors;
 
 public class Main {
 
-    static ArrayList<Integer> orderFromCostumers = new ArrayList<Integer>();
-    static int orderNum;
-    static double totalPriceSum;
-    public static ArrayList<String> currentOrders = new ArrayList<String>();
-    public static ArrayList<String> allOrders = new ArrayList<String>();
 
-
+    static ArrayList<String> currentOrders = new ArrayList<String>();
+    static ArrayList<String> allOrders = new ArrayList<String>();
+    static ArrayList<String> totalpriceOfOrder = new ArrayList<String>();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -33,7 +30,7 @@ public class Main {
 
         Pizza[] Menukort = {Vesuvio, Margherita, Bertil, Victoria};
 
-        int chosenPizza;                                                                                                              
+        int chosenPizza;
         int chosenAction;
         boolean pizzabarOpen = true;
         System.out.println("Welcome to the Pizzabar system");
@@ -50,14 +47,13 @@ public class Main {
                 String newestOrder = pizzaorder + pizzaOrderCount;
                 currentOrders.add(newestOrder);
             }
-
             ArrayList<Pizza> placeOrder = new ArrayList<Pizza>();
             switch (chosenAction) {
                 case 1:
                     System.out.println("Place order\n 1 - Vesuvio\n 2 - Bertil\n 3 - Margherita\n 4 - Victoria");
                     chosenPizza = scanner.nextInt();
                     //Vi sætter totalpricesum til 0, for ikke at lægge den forrige pizzas pris oven i den nye pizzas pris
-                    totalPriceSum = 0;
+                    int totalPriceSum = 0;
 
                     while (chosenPizza != 0) {
 
@@ -90,10 +86,12 @@ public class Main {
                         System.out.println(placeOrder.stream().map(Object::toString)
                                 .collect(Collectors.joining("\n")));
 
-                        System.out.println("Do you want to finish your order? \n type:\n 0 - YES ");
+                        System.out.println("Do you to finish your order? \n type:\n 0 - YES ");
                         chosenPizza = scanner.nextInt();
                         if (chosenPizza == 0) {
                             System.out.println("total price: " + totalPriceSum);
+                            String totalpriceOfOrdertoString = Integer.toString(totalPriceSum);
+                            totalpriceOfOrder.add(totalpriceOfOrdertoString);
                         }
                     }
                     //Vi laver en placeOrderString for at kunne tilføje ordren til vores orders arraylist som en string
@@ -119,8 +117,11 @@ public class Main {
                             .collect(Collectors.joining("\n")));
                     break;
                 case 4:
-                    System.out.println(currentOrders.stream().map(Object::toString)
-                            .collect(Collectors.joining("\n")));
+                    for (int i = 0; i < currentOrders.size(); i++) {
+                        System.out.println(currentOrders.get(i));
+                        System.out.println("Total price of order: " + totalpriceOfOrder.get(i));
+                    }
+
                     break;
                 case 5:
                     System.out.println("Chose order to remove/mark as done");
@@ -138,7 +139,4 @@ public class Main {
             }
         }
     }
-
 }
-
-//make txt with saved orders
