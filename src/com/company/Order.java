@@ -1,12 +1,11 @@
 package com.company;
 
-import java.security.PublicKey;
-import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+
 
 public class Order {
+
+    //Asger
 
     static ArrayList<String> currentOrders = new ArrayList<String>();
     static ArrayList<String> allOrders = new ArrayList<String>();
@@ -17,6 +16,5 @@ public class Order {
 
             return countPizza++;
         }
-
     }
 

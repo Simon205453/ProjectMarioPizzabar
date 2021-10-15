@@ -10,6 +10,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        //fælles---------------------------------------------------------------------------------------------------------
+
         //Creates a new instance of pizzatoppings
         Pizzatopping pizzatopping = new Pizzatopping("Tomatsauce", "Ost", "Oregano", "Skinke", "Bacon", "Løg", "Champingnon", "Ananas");
 
@@ -27,6 +29,9 @@ public class Main {
 
         Pizza[] Menukort = {Vesuvio, Margherita, Bertil, Victoria};
 
+        //Fælles---------------------------------------------------------------------------------------------------------
+
+        //Asger--------------------------------------------------------------------------------------------------------------------------------------------
         int chosenPizza;
         int chosenAction;
         boolean pizzabarOpen = true;
@@ -44,6 +49,10 @@ public class Main {
                 String newestOrder = pizzaorder + pizzaOrderCount;
                 Order.currentOrders.add(newestOrder);
             }
+
+            //Asger--------------------------------------------------------------------------------------------------------------------------------------------
+
+            //sara--------------------------------------------------------------------------------------------------------------------------------------------
             ArrayList<Pizza> placeOrder = new ArrayList<Pizza>();
             switch (chosenAction) {
                 case 1:
@@ -53,7 +62,9 @@ public class Main {
                     int totalPriceSum = 0;
 
                     while (chosenPizza != 0) {
+//sara--------------------------------------------------------------------------------------------------------------------------------------------
 
+   //simon--------------------------------------------------------------------------------------------------------------------------------------------
                         switch (chosenPizza) {
                             case 1:
                                 System.out.println(Vesuvio.getName());
@@ -80,23 +91,30 @@ public class Main {
                                 break;
                         }
 
+
                         System.out.println(placeOrder.stream().map(Object::toString)
                                 .collect(Collectors.joining("\n")));
-
+//simon-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   //asger--------------------------------------------------------------------------------------------------------------------------------------------
                         System.out.println("Do you to finish your order? \n type:\n 0 - YES ");
                         chosenPizza = scanner.nextInt();
                         if (chosenPizza == 0) {
+   //Asger--------------------------------------------------------------------------------------------------------------------------------------------
+   //simon-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                             System.out.println("total price: " + totalPriceSum);
                             String totalpriceOfOrdertoString = Integer.toString(totalPriceSum);
                             Order.totalpriceOfOrder.add(totalpriceOfOrdertoString);
                         }
                     }
+
+
                     //Vi laver en placeOrderString for at kunne tilføje ordren til vores orders arraylist som en string
                     String placeOrderString = "";
                     placeOrderString = placeOrder.toString();
                     Order.currentOrders.add(placeOrderString);
                     Order.allOrders.add(placeOrderString);
-
+//simon-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Asger-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                     Order ordersFromCostumer = new Order();
                     ordersFromCostumer.countingPizza();
                     break;
@@ -106,9 +124,9 @@ public class Main {
                     for (int i = 0; i < Menukort.length; i++) {
                         System.out.println(Menukort[i]);
                     }
-
                     break;
-
+//Asger-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Simon-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 case 3:
                     System.out.println(Order.allOrders.stream().map(Object::toString)
                             .collect(Collectors.joining("\n")));
@@ -130,9 +148,13 @@ public class Main {
                     System.out.println(Order.currentOrders.stream().map(Object::toString)
                             .collect(Collectors.joining("\n")));
                     break;
+//simon-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Sara-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 default:
                     System.out.println("Invalid action");
                     break;
+//Sara-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
             }
         }
     }
