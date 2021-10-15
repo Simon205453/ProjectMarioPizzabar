@@ -43,35 +43,6 @@ public class Pizza {
                 ", pizzaTopping= " + Arrays.toString(pizzaTopping) +
                 '}';
     }
-
-    /*
-    public ArrayList<String> getListOfPizzaToppings() {
-
-        ArrayList<String> listOfPizzaToppings = new ArrayList<String>();
-        listOfPizzaToppings.add("Tomatsauce");
-        listOfPizzaToppings.add("Ost");
-        listOfPizzaToppings.add("Oregano");
-        listOfPizzaToppings.add("Skinke");
-        listOfPizzaToppings.add("Bacon");
-        listOfPizzaToppings.add("Løg");
-        listOfPizzaToppings.add("Champingnon");
-        listOfPizzaToppings.add("Ananas");
-
-        return listOfPizzaToppings;
-
-    }
-
-
- */
-
-/*
-    public String getPizzaToppings1() {
-
-        String pizzaTopping1 = getListOfPizzaToppings().get(0);
-
-        return pizzaTopping1;
-    }
-*/
 }
 
 

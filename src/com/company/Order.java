@@ -30,7 +30,7 @@ public class Order {
                 '}';
     }
 
-    public Order(String timestamp, double totalPrice, String customerName, Pizza[] chosenPizzas, int orderId) {
+    public Order(String timestamp, double totalPrice, String customerName) {
         this.timestamp = timestamp;
         this.totalPrice = totalPrice;
         this.customerName = customerName;

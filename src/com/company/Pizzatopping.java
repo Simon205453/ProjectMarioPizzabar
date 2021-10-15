@@ -15,7 +15,7 @@ public class Pizzatopping {
                 ", chili='" + chili + '\'' +
                 ", ananas='" + ananas + '\'' +
                 ", kebab='" + kebab + '\'' +
-                '}';
+                '}' + "\n";
     }
 
     private String tomatsauce;

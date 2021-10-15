@@ -1,12 +1,24 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
-    public static void main(String[] args) {
 
+    static ArrayList<Integer> orderFromCostumers = new ArrayList<Integer>();
+    static int orderNum;
+    static double totalPriceSum;
+    static ArrayList<String> currentOrders = new ArrayList<String>();
+    static ArrayList<String> allOrders = new ArrayList<String>();
+
+    public static double getTotalPriceSum() {
+        //if (currentOrders.contains(Pizza Ves))
+        return totalPriceSum;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
         //creates a new instance of pizzatoppings
         Pizzatopping pizzatopping = new Pizzatopping("Tomatsauce", "Ost", "Oregano", "Skinke", "Bacon", "Løg", "Champingnon", "Chili", "Ananas", "Kebab");
@@ -24,58 +36,109 @@ public class Main {
 
         Pizza[] Menukort = {Vesuvio, Margherita, Bertil, Victoria};
 
-        for (int i = 0; i < Menukort.length; i++) {
-            System.out.println(Menukort[i]);
-        }
+        int chosenPizza;
+        int chosenAction;
+        boolean pizzabarOpen = true;
+        System.out.println("Welcome to the Pizzabar system");
+        while (pizzabarOpen) {
 
+            System.out.println(" 1 - place order \n 2 - show menu \n 3 - show all orders \n 4 - show current orders \n 5 - remove order");
+            chosenAction = scanner.nextInt();
 
-
-        Scanner scanner = new Scanner(System.in);
-        ArrayList<Integer> orderFromCostumers = new ArrayList<Integer>();
-
-        System.out.println("Hello and welcome to Marios pizzaria, how can i help you?");
-        System.out.println("Enter 0 to finish this order.");
-        // en kunde siger hvilke pizzaer de vil have f.eks. en nummer 2 og nummer 3.
-        int costumerPizza = scanner.nextInt();
-        int countPizza = 0;
-        while (costumerPizza != 0) {
-            orderFromCostumers.add(costumerPizza);
-            costumerPizza = scanner.nextInt();
-            countPizza++;
-            if (costumerPizza == 1){
-                Vesuvio.getName();
-                continue;
-            }else if(costumerPizza == 2){
-    Margherita.getName();
-    continue;
-            }else if (costumerPizza == 3){
-                Bertil.getName();
-                continue;
-            }else if (costumerPizza == 4){
-                Victoria.getName();
-
-                continue;
-            }else {
-
-                continue;
+            String pizzaorder = "Order";
+            int pizzaOrderCount = 0;
+            int currentOrderNum = 0;
+            String customerName = "";
+            while (currentOrderNum != pizzaOrderCount) {
+                String newestOrder = pizzaorder + pizzaOrderCount;
+                currentOrders.add(newestOrder);
             }
-        }
+            ArrayList<Pizza> placeOrder = new ArrayList<Pizza>();
+            switch (chosenAction) {
+                case 1:
+                    System.out.println("Place order\n 1 - Vesuvio\n 2 - Bertil\n 3 - Margherita\n 4 - Victoria");
+                    chosenPizza = scanner.nextInt();
+            //Vi sætter totalpricesum til 0, for ikke at lægge den forrige pizzas pris oven i den nye pizzas pris
+                    totalPriceSum = 0;
 
+                    while (chosenPizza != 0) {
 
-        System.out.println("So in total you have " + countPizza + " pizzas and the numbers are: ");
+                        switch (chosenPizza) {
+                            case 1:
+                                System.out.println(Vesuvio.getName());
+                                totalPriceSum = totalPriceSum + Vesuvio.getPrice();
+                                placeOrder.add(Vesuvio);
+                                break;
+                            case 2:
+                                System.out.println(Bertil.getName());
+                                totalPriceSum = totalPriceSum + Bertil.getPrice();
+                                placeOrder.add(Bertil);
+                                break;
+                            case 3:
+                                System.out.println(Margherita.getName());
+                                totalPriceSum = totalPriceSum + Margherita.getPrice();
+                                placeOrder.add(Margherita);
+                                break;
+                            case 4:
+                                System.out.println(Victoria.getName());
+                                totalPriceSum = totalPriceSum + Victoria.getPrice();
+                                placeOrder.add(Victoria);
+                                break;
+                            default:
+                                System.out.println("Unavailable Pizza");
+                                break;
 
-        for (int e : orderFromCostumers) {
-            System.out.println("Number " + e);
-        }
+                        }
 
-        if (countPizza < 10){
-            System.out.println("They are ready in 10 minuts🍕");
-       }else {
-               System.out.println("They are ready in 20 minuts🍕");
+                        System.out.println(placeOrder.stream().map(Object::toString)
+                                .collect(Collectors.joining("\n")));
+
+                        System.out.println("Do you to finish your order? \n type:\n 0 - YES ");
+                        chosenPizza = scanner.nextInt();
+                        if (chosenPizza == 0) {
+                            System.out.println("total price: " + totalPriceSum);
+                        }
+                    }
+                    //Vi laver en placeOrderString for at kunne tilføje ordren til vores orders arraylist som en string
+                    String placeOrderString = "";
+                    placeOrderString = placeOrder.toString();
+                    currentOrders.add(placeOrderString);
+                    allOrders.add(placeOrderString);
+
+                    pizzaOrderCount++;
+                    break;
+
+                case 2:
+                    System.out.println("Menukort \n-----------");
+                    for (int i = 0; i < Menukort.length; i++) {
+                        System.out.println(Menukort[i]);
+                    }
+                    break;
+
+                case 3:
+                    System.out.println(allOrders.stream().map(Object::toString)
+                            .collect(Collectors.joining("\n")));
+                    break;
+                case 4:
+                    System.out.println(currentOrders.stream().map(Object::toString)
+                            .collect(Collectors.joining("\n")));
+                    break;
+                case 5:
+                    System.out.println("Chose order to remove/mark as done");
+                    System.out.println(currentOrders.stream().map(Object::toString)
+                            .collect(Collectors.joining("\n")));
+                    int removeOrder = scanner.nextInt();
+                    currentOrders.remove(removeOrder - 1);
+                    System.out.println("Current orders");
+                    System.out.println(currentOrders.stream().map(Object::toString)
+                            .collect(Collectors.joining("\n")));
+                    break;
+                default:
+                    System.out.println("Invalid action");
+                    break;
+            }
         }
     }
 }
 
-
-
-
+//make txt with saved orders
